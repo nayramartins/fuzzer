@@ -7,18 +7,23 @@ import {
 import {
   LoginComponent
 } from './core/components/login/login.component';
+import { SearchComponent } from './core/components/search/search.component';
+import { AboutComponent } from './core/components/about/about.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
-//   {
-//     path: 'dashboard',
-//     component: LoginComponent,
-//     canActivate: [AuthGuard]
-//   }
+  {
+    path: 'search',
+    component: SearchComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class RoutingModule {}

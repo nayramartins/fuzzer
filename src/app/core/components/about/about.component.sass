@@ -1,0 +1,107 @@
+@import '../../../../assets/styles/index'
+
+.about
+  display: flex
+  flex-direction: row-reverse;
+  height: 100vh
+
+  @media screen and (max-width: 731px)
+    flex-direction: column
+
+  &-content
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    padding: 0 215px
+    position: relative
+    width: 60%
+    color: $fuzzer-green
+    font-family: 'Montserrat', sans-serif 
+    text-align: center
+    box-sizing: border-box
+
+    @media screen and (max-width: 1421px)
+      padding: 0 40px
+  
+    p
+      color: $fuzzer-gray
+      text-align: left
+
+    @media screen and (max-width: 731px)
+      width: 100%
+      height: 80%
+
+    h2
+      margin: 0 0 30px
+      font-size: 35px
+      font-weight: 300
+
+  nav
+    position: relative
+    align-self: flex-start
+    margin: 20px 30px
+    padding: 10px
+    width: 320px
+    background-color: $fuzzer-black
+    box-sizing: border-box
+
+    .menu
+      font-size: 18px
+
+      a
+        margin: 0 5px
+        color: $fuzzer-white
+        text-decoration: none
+
+        &::before
+          content: ''
+          width: 0
+          height: 0
+          border-left: 320px solid transparent
+          border-bottom: 14px solid $fuzzer-black
+          position: absolute
+          left: 0
+          top: -13px
+
+  &-background
+    display: flex
+    justify-content: center 
+    position: relative
+    flex-grow: 1
+
+    img
+      position: absolute
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+  .artists
+    width: 100%
+
+    &-about
+      width: 90%
+      padding: 18px
+      border: none
+      border-bottom: 1px solid $fuzzer-black
+      font-size: 18px
+      font-family: 'Montserrat', sans-serif 
+      font-weight: 300
+      box-sizing: border-box
+      outline: none
+
+  .title-text
+    width: 60%
+
+    span
+      display: block
+      font-size: 75px
+      font-weight: 300
+      line-height: .86
+      letter-spacing: -1.5px
+
+    &__first
+      text-align: left
+
+    &__second
+      text-align: right
