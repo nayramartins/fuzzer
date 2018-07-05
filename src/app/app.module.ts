@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { RoutingModule } from './routing.module';
 
+import { AuthService } from './core/services/auth.service';
+import { CookieModule } from 'ngx-cookie';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './core/components/login/login.component';
 import { SearchComponent } from './core/components/search/search.component';
@@ -18,9 +21,12 @@ import { AboutComponent } from './core/components/about/about.component';
   ],
   imports: [
     BrowserModule,
-    RoutingModule
+    RoutingModule,
+    CookieModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
