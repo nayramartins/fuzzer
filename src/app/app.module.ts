@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { RoutingModule } from './routing.module';
 
 import { AuthService } from './core/services/auth.service';
+import { AuthGuard } from './core/services/auth.guard';
+
 import { CookieModule } from 'ngx-cookie';
 
 import { AppComponent } from './app.component';
@@ -25,7 +27,8 @@ import { AboutComponent } from './core/components/about/about.component';
     CookieModule.forRoot()
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

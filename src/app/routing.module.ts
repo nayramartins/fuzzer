@@ -4,6 +4,8 @@ import {
   Routes
 } from '@angular/router';
 
+import { AuthGuard } from './core/services/auth.guard';
+
 import {
   LoginComponent
 } from './core/components/login/login.component';
@@ -15,7 +17,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: 'search',
-    component: SearchComponent
+    component: SearchComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'about',
