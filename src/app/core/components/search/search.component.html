@@ -20,7 +20,12 @@
       add artists to your new playlist!
     </h2>
     <div class="artists">
-      <input type="text" class="artists-search" placeholder="type the artist or band name...">
+      <input 
+        type="text" 
+        class="artists-search" 
+        placeholder="type the artist or band name..."
+        [(ngModel)]="searchQuery"
+        (blur)="searchArtist()">
       <div class="artists-result">
 
       </div>
