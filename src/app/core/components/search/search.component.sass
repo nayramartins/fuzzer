@@ -12,11 +12,11 @@
     flex-direction: column
     align-items: center
     justify-content: center
-    padding: 0 40px
+    padding: 60px 40px
     position: relative
     width: 60%
     color: $fuzzer-green
-    font-family: 'Montserrat', sans-serif 
+    font-family: 'Montserrat', sans-serif
     text-align: center
     box-sizing: border-box
 
@@ -58,7 +58,7 @@
 
   &-background
     display: flex
-    justify-content: center 
+    justify-content: center
     position: relative
     flex-grow: 1
 
@@ -69,15 +69,114 @@
       object-fit: cover
 
   .artists
+    display: flex
+    flex-direction: column
     width: 100%
 
     &-search
       width: 90%
       padding: 18px
       border: none
-      border-bottom: 1px solid $fuzzer-black
+      color: $fuzzer-black
       font-size: 18px
-      font-family: 'Montserrat', sans-serif 
+      font-family: 'Montserrat', sans-serif
       font-weight: 300
       box-sizing: border-box
       outline: none
+      border-bottom: 2px solid $fuzzer-black
+
+    &-result
+      flex-grow: 1
+      overflow: auto
+
+      &__list
+        display: flex
+        flex-wrap: wrap
+
+        li
+          position: relative
+          display: flex
+          align-items: center
+          justify-content: center
+          min-width: calc((100% - 5px * 3) / 3)
+          max-width: calc((100% - 5px * 3) / 3)
+          height: 170px
+          margin: 2.5px
+          background-color: $fuzzer-black
+          cursor: pointer
+          transition: .2s
+
+          &:hover
+            background-color: #000
+
+          img
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            object-fit: cover
+            opacity: 0.3
+
+          .artist-name
+            position: absolute
+            bottom: 10px
+            left: 10px
+            max-width: 84%
+            background: $fuzzer-black
+            padding: 10px
+            color: $fuzzer-white
+
+    &-header
+      display: flex
+      min-height: 55px
+      margin-bottom: 30px
+
+      button
+        padding: 0 50px
+        border: 0
+        text-transform: uppercase
+        color: $fuzzer-white
+        background: $fuzzer-black
+        cursor: pointer
+
+  .click-area
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
+  .selected-artists
+    margin-bottom: 30px
+    text-align: left
+
+    &__list
+      display: flex
+      flex-wrap: wrap
+
+      li
+        min-width: 80px
+        margin: 5px
+        padding: 10px 20px
+        background-color: $fuzzer-green
+        color: $fuzzer-white
+        text-align: center
+        cursor: pointer
+        transition: .2s
+
+        &:last-child
+          margin-right: 0
+
+  .go-playlist
+    width: 100%
+    padding: 15px
+    font-size: 15px
+    margin: 5px 0
+    border: 0
+    background-color: #ff963d
+    color: $fuzzer-white
+    cursor: pointer
+
+    &:active
+      background-color: #d67d32

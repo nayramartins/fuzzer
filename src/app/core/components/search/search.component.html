@@ -20,14 +20,33 @@
       add artists to your new playlist!
     </h2>
     <div class="artists">
-      <input 
-        type="text" 
-        class="artists-search" 
-        placeholder="type the artist or band name..."
-        [(ngModel)]="searchQuery"
-        (blur)="searchArtist()">
-      <div class="artists-result">
+      <div class="artists-header">
+        <input
+          type="text"
+          class="artists-search"
+          placeholder="type the artist or band name..."
+          [(ngModel)]="searchQuery">
 
+        <button #search id="search" (click)="searchArtist()">Search</button>
+      </div>
+      <div class="selected-artists" *ngIf="selectedArtists.length > 0">
+        <small>selected artists:</small>
+        <ul class="selected-artists__list">
+          <li *ngFor="let artistName of selectedArtists; let i = index" (click)="removeArtist(i)">
+            {{ artistName }}
+          </li>
+        </ul>
+        <button class="go-playlist">generate my playlist!</button>
+      </div>
+      <div class="artists-result">
+        <ul class="artists-result__list">
+          <li *ngFor="let artist of artistsList">
+            <div class="click-area" (click)="selectArtist(artist)">
+              <img src="{{ artist.images.length > 0 ? artist.images[1].url : '' }}" alt="">
+              <p class="artist-name">{{ artist.name }}</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </section>

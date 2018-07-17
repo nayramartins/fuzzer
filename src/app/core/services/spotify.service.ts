@@ -10,7 +10,7 @@ export class SpotifyService {
   httpOptions = {
     headers: new HttpHeaders({
         'Content-Type':  'application/json',
-        'Authorization': `Bearer ${this.cookieService.get("fuzzerToken")}`
+        'Authorization': `Bearer ${this.cookieService.get('fuzzerToken')}`
     })
   }
 
@@ -21,11 +21,25 @@ export class SpotifyService {
   }
 
   searchArtist(query) {
-    return this.http.get(`${this.spotifyAPI}search?q=${query}&type=artist`, 
+    return this.http.get(`${this.spotifyAPI}search?q=${query}&type=artist`,
+      this.httpOptions);
+  }
+
+  getTopSongs(id) {
+    return this.http.get(`${this.spotifyAPI}artists/${id}/top-tracks?country=US`,
+      this.httpOptions);
+  }
+
+  getUserId() {
+    return this.http.get(`${this.spotifyAPI}me`,
+      this.httpOptions);
+  }
+
+  createMagicPlaylist(userId) {
+    return this.http.post(`${this.spotifyAPI}users/${userId}/playlists`,
       this.httpOptions)
   }
 }
 
 
-         
-        
+
