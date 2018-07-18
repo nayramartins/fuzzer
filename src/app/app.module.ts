@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -20,12 +21,19 @@ import {
   ReactiveFormsModule
 } from '@angular/forms';
 
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatDialogModule, MatRadioModule } from '@angular/material';
+import { CreateDialogComponent } from './core/components/search/create-dialog/create-dialog.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SearchComponent,
-    AboutComponent
+    AboutComponent,
+    CreateDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -34,12 +42,19 @@ import {
     CookieModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,
+    NoopAnimationsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatRadioModule
   ],
   providers: [
     AuthService,
     AuthGuard,
     SpotifyService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    CreateDialogComponent
+  ],
 })
 export class AppModule { }

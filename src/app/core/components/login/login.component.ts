@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
       .split('&')
       .reduce((result, item) => {
         const args = item.split('=')
-  
+
         result[args[0]] = args[1]
         return result
       }, {})

@@ -1,10 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie';
 import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class AuthService {
-  constructor(private router: Router) {
+
+  public httpOptions = {
+    headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': `Bearer ${this.cookieService.get('fuzzerToken')}`
+    })
+  }
+
+  public spotifyAPI = 'https://api.spotify.com/v1/';
+
+  constructor(private http: HttpClient,
+    private cookieService: CookieService) {
   }
 
   login() {
@@ -13,5 +25,10 @@ export class AuthService {
     clientId + '&redirect_uri=' + encodeURIComponent(redirectUri) +
       (scopes ? '&scope=' + encodeURIComponent(scopes) : '');
     return window.location.replace(loginURL);
+  }
+
+  getUser() {
+    return this.http.get(`${this.spotifyAPI}me`,
+      this.httpOptions);
   }
 }

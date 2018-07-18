@@ -1,12 +1,19 @@
 
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
 import { CookieService } from 'ngx-cookie';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 
 @Injectable()
 export class SpotifyService {
+
+  selectedArtists = new BehaviorSubject<any>(null);
+
+  selectedSongs = new BehaviorSubject<any>(null);
+
+  playlistId = new BehaviorSubject<any>(null);
+
   httpOptions = {
     headers: new HttpHeaders({
         'Content-Type':  'application/json',
@@ -30,17 +37,12 @@ export class SpotifyService {
       this.httpOptions);
   }
 
-  getUserId() {
-    return this.http.get(`${this.spotifyAPI}me`,
-      this.httpOptions);
-  }
-
-  createMagicPlaylist(userId) {
+  createMagicPlaylist(userId, playlistName, playlistDescription, playlistPrivacy) {
     return this.http.post(`${this.spotifyAPI}users/${userId}/playlists`,
       {
-        "name": "Magic Playlist",
-        "description": "New playlist description",
-        "public": false
+        "name": playlistName,
+        "description": playlistDescription,
+        "public": playlistPrivacy
       },
       this.httpOptions)
   }

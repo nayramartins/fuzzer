@@ -1,31 +1,40 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { SpotifyService } from '../../services/spotify.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateDialogComponent } from './create-dialog/create-dialog.component';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.sass']
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
 
   @ViewChild('search')
   public search: any;
 
-  searchQuery: string;
+  public searchQuery: string;
 
-  artistsList = [];
+  public artistsList = [];
 
-  topTracks = [];
+  public topTracks = [];
 
-  selectedArtists = [];
+  public selectedArtists = [];
 
-  userInfo;
+  public playlistInfo;
 
-  playlistInfo;
+  public user;
 
-  constructor(private spotifyService: SpotifyService) {
-    this.getUserId();
-   }
+  constructor(private spotifyService: SpotifyService,
+    private authService: AuthService,
+    public dialog: MatDialog) { }
+
+  ngOnInit() {
+    this.authService.getUser().subscribe(value => {
+      this.user = value;
+    });
+  };
 
   searchArtist() {
     if (!this.search.value == undefined) {
@@ -42,28 +51,26 @@ export class SearchComponent {
   }
 
   selectArtist(artist: any) {
-    this.selectedArtists.push(artist.name);
-    this.spotifyService.getTopSongs(artist.id).subscribe(res => {
-      this.setPlaylistSongs(res);
+    this.selectedArtists.push(artist);
+    this.spotifyService.selectedArtists.next(this.selectedArtists);
+  }
+
+  openDialog(): void {
+    let dialogRef = this.dialog.open(CreateDialogComponent, {
+      width: '960px',
+      data: {
+        editionMode: false
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getPlaylistId();
+      this.spotifyService.setMusic(this.user.id, this.playlistInfo.id, result).subscribe();
     });
   }
 
-  setPlaylistSongs(res) {
-    res.tracks.filter(song => {
-      this.topTracks.push(song.uri);
-    });
-  }
-
-  getUserId() {
-    this.spotifyService.getUserId().subscribe(value => {
-      this.userInfo = value;
-    })
-  }
-
-  createPlaylist() {
-    this.spotifyService.createMagicPlaylist(this.userInfo.id).subscribe(value => {
+  getPlaylistId() {
+    this.spotifyService.playlistId.subscribe(value => {
       this.playlistInfo = value;
-      this.spotifyService.setMusic(this.userInfo.id, this.playlistInfo.id, this.topTracks).subscribe();
     });
   }
 

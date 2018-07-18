@@ -33,11 +33,11 @@
       <div class="selected-artists" *ngIf="selectedArtists.length > 0">
         <small>selected artists:</small>
         <ul class="selected-artists__list">
-          <li *ngFor="let artistName of selectedArtists; let i = index" (click)="removeArtist(i)">
-            {{ artistName }}
+          <li *ngFor="let artist of selectedArtists; let i = index" (click)="removeArtist(i)">
+            {{ artist.name }}
           </li>
         </ul>
-        <button class="go-playlist" (click)="createPlaylist()">generate my playlist!</button>
+        <button class="go-playlist" (click)="openDialog()">generate my playlist!</button>
       </div>
       <div class="artists-result">
         <ul class="artists-result__list">
