@@ -47,7 +47,7 @@ export class CreateDialogComponent implements OnInit {
     this.selectedArtists.map(value => {
       this.spotifyService.getTopSongs(value.id).subscribe(res => {
         this.topTracks.push(res);
-        this.getSongsURI()
+        // this.getSongsURI()
       });
     });
 
@@ -57,9 +57,11 @@ export class CreateDialogComponent implements OnInit {
   }
 
   getSongsURI() {
-    this.topTracks[0].tracks.map(track => {
+    this.topTracks.map(tracks => {
+      tracks.tracks.map(track => {
       this.songsURI.push(track.uri);
       this.spotifyService.selectedSongs.next(this.songsURI);
+      })
     });
   }
 
@@ -69,6 +71,7 @@ export class CreateDialogComponent implements OnInit {
         this.playlistId = value;
         this.spotifyService.playlistId.next(this.playlistId);
       });
+    this.getSongsURI()
     this.dialogRef.close(this.songsURI);
   }
 

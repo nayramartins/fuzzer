@@ -63,6 +63,7 @@ export class SearchComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(result => {
+      console.log(result)
       this.getPlaylistId();
       this.spotifyService.setMusic(this.user.id, this.playlistInfo.id, result).subscribe();
     });
