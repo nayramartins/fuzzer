@@ -37,6 +37,17 @@ export class SpotifyService {
 
   createMagicPlaylist(userId) {
     return this.http.post(`${this.spotifyAPI}users/${userId}/playlists`,
+      {
+        "name": "Magic Playlist",
+        "description": "New playlist description",
+        "public": false
+      },
+      this.httpOptions)
+  }
+
+  setMusic(userId, playlistId, songs) {
+    const data = songs.toString();
+    return this.http.post(`${this.spotifyAPI}users/${userId}/playlists/${playlistId}/tracks?uris=${encodeURI(data)}`, {},
       this.httpOptions)
   }
 }

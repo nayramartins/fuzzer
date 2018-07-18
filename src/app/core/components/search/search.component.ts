@@ -21,7 +21,11 @@ export class SearchComponent {
 
   userInfo;
 
-  constructor(private spotifyService: SpotifyService) { }
+  playlistInfo;
+
+  constructor(private spotifyService: SpotifyService) {
+    this.getUserId();
+   }
 
   searchArtist() {
     if (!this.search.value == undefined) {
@@ -33,24 +37,21 @@ export class SearchComponent {
     });
   }
 
-  setArtists(res: any) {
+  setArtists(res) {
     this.artistsList = res.artists.items;
   }
 
   selectArtist(artist: any) {
     this.selectedArtists.push(artist.name);
-    this.spotifyService.getTopSongs(artist.id).subscribe(song => {
-      this.setPlaylistSongs(song);
+    this.spotifyService.getTopSongs(artist.id).subscribe(res => {
+      this.setPlaylistSongs(res);
     });
   }
 
-  setPlaylistSongs(song) {
-    song.tracks.filter(song => {
+  setPlaylistSongs(res) {
+    res.tracks.filter(song => {
       this.topTracks.push(song.uri);
     });
-
-
-    this.createPlaylist();
   }
 
   getUserId() {
@@ -60,7 +61,10 @@ export class SearchComponent {
   }
 
   createPlaylist() {
-    this.spotifyService.createMagicPlaylist(this.userInfo);
+    this.spotifyService.createMagicPlaylist(this.userInfo.id).subscribe(value => {
+      this.playlistInfo = value;
+      this.spotifyService.setMusic(this.userInfo.id, this.playlistInfo.id, this.topTracks).subscribe();
+    });
   }
 
   removeArtist(index) {

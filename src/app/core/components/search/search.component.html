@@ -25,6 +25,7 @@
           type="text"
           class="artists-search"
           placeholder="type the artist or band name..."
+          (onfocus)="clear()"
           [(ngModel)]="searchQuery">
 
         <button #search id="search" (click)="searchArtist()">Search</button>
@@ -36,7 +37,7 @@
             {{ artistName }}
           </li>
         </ul>
-        <button class="go-playlist">generate my playlist!</button>
+        <button class="go-playlist" (click)="createPlaylist()">generate my playlist!</button>
       </div>
       <div class="artists-result">
         <ul class="artists-result__list">
