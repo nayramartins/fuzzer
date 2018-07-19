@@ -3,6 +3,7 @@ import { SpotifyService } from '../../services/spotify.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateDialogComponent } from './create-dialog/create-dialog.component';
 import { AuthService } from '../../services/auth.service';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-search',
@@ -13,6 +14,9 @@ export class SearchComponent implements OnInit {
 
   @ViewChild('search')
   public search: any;
+
+  @ViewChild('form')
+  public form: any;
 
   public searchQuery: string;
 
@@ -28,7 +32,8 @@ export class SearchComponent implements OnInit {
 
   constructor(private spotifyService: SpotifyService,
     private authService: AuthService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.authService.getUser().subscribe(value => {
@@ -51,6 +56,11 @@ export class SearchComponent implements OnInit {
   }
 
   selectArtist(artist: any) {
+    if (this.selectedArtists.length > 9 ) {
+      this.notificationService.warning('Slow down! You add can only 10 artists by playlist.');
+      return
+    }
+
     this.selectedArtists.push(artist);
     this.spotifyService.selectedArtists.next(this.selectedArtists);
   }
@@ -63,9 +73,25 @@ export class SearchComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
+      if (!result) {
+        return
+      }
       this.getPlaylistId();
-      this.spotifyService.setMusic(this.user.id, this.playlistInfo.id, result).subscribe();
+      this.spotifyService.setMusic(this.user.id, this.playlistInfo.id, result).subscribe(
+        res => {
+          this.form.reset();
+          this.selectedArtists = [];
+          this.artistsList = [];
+          this.spotifyService.selectedArtists.next(null);
+          this.notificationService.success('Success! Go to your spotify library to find your playlist!');
+        }, error => {
+          this.form.reset();
+          this.selectedArtists = [];
+          this.artistsList = [];
+          this.spotifyService.selectedArtists.next(null);
+          this.notificationService.error('something went wrong!');
+        },
+      );
     });
   }
 

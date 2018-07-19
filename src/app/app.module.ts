@@ -8,6 +8,7 @@ import { RoutingModule } from './routing.module';
 import { AuthService } from './core/services/auth.service';
 import { AuthGuard } from './core/services/auth.guard';
 import { SpotifyService } from './core/services/spotify.service';
+import { NotificationService } from './core/services/notification.service';
 
 import { CookieModule } from 'ngx-cookie';
 
@@ -23,9 +24,12 @@ import {
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatDialogModule, MatRadioModule } from '@angular/material';
+import {
+  MatDialogModule,
+  MatRadioModule,
+  MatSnackBarModule
+} from '@angular/material';
 import { CreateDialogComponent } from './core/components/search/create-dialog/create-dialog.component';
-
 
 @NgModule({
   declarations: [
@@ -45,12 +49,14 @@ import { CreateDialogComponent } from './core/components/search/create-dialog/cr
     NoopAnimationsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSnackBarModule
   ],
   providers: [
     AuthService,
     AuthGuard,
-    SpotifyService
+    SpotifyService,
+    NotificationService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

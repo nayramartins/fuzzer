@@ -20,16 +20,18 @@
       add artists to your new playlist!
     </h2>
     <div class="artists">
-      <div class="artists-header">
+      <form class="artists-header" #form="ngForm">
         <input
-          type="text"
           class="artists-search"
+          name="search"
           placeholder="type the artist or band name..."
-          (onfocus)="clear()"
-          [(ngModel)]="searchQuery">
+          [(ngModel)]="searchQuery"
+          #search="ngModel"
+          type="text"
+          autocomplete="off">
 
-        <button #search id="search" (click)="searchArtist()">Search</button>
-      </div>
+        <button #search id="search" (click)="searchArtist(); form.reset()">Search</button>
+      </form>
       <div class="selected-artists" *ngIf="selectedArtists.length > 0">
         <small>selected artists:</small>
         <ul class="selected-artists__list">
