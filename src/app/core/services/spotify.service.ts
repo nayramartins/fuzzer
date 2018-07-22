@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
+import { AuthService } from './auth.service';
 
 
 @Injectable()
@@ -13,17 +14,13 @@ export class SpotifyService {
 
   selectedSongs = new BehaviorSubject<any>(null);
 
-  httpOptions = {
-    headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': `Bearer ${this.cookieService.get('fuzzerToken')}`
-    })
-  }
+  httpOptions = this.authService.httpOptions;
 
   spotifyAPI = 'https://api.spotify.com/v1/';
 
   constructor(private cookieService: CookieService,
-    private http: HttpClient) {
+    private http: HttpClient,
+    private authService: AuthService) {
   }
 
   searchArtist(query) {
