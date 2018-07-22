@@ -76,8 +76,7 @@ export class SearchComponent implements OnInit {
       if (!result) {
         return
       }
-      this.getPlaylistId();
-      this.spotifyService.setMusic(this.user.id, this.playlistInfo.id, result).subscribe(
+      this.spotifyService.setMusic(this.user.id, result).subscribe(
         res => {
           this.form.reset();
           this.selectedArtists = [];
@@ -92,12 +91,6 @@ export class SearchComponent implements OnInit {
           this.notificationService.error('something went wrong!');
         },
       );
-    });
-  }
-
-  getPlaylistId() {
-    this.spotifyService.playlistId.subscribe(value => {
-      this.playlistInfo = value;
     });
   }
 

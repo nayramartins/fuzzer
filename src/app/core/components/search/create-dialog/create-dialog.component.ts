@@ -2,12 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SpotifyService } from '../../../services/spotify.service';
 import { AuthService } from '../../../services/auth.service';
+import { Playlist } from '../../../models/Playlist';
 
-export interface Playlist {
-  name: string;
-  description: string;
-  public: boolean;
-}
 
 @Component({
   selector: 'app-create-dialog',
@@ -47,7 +43,6 @@ export class CreateDialogComponent implements OnInit {
     this.selectedArtists.map(value => {
       this.spotifyService.getTopSongs(value.id).subscribe(res => {
         this.topTracks.push(res);
-        // this.getSongsURI()
       });
     });
 
@@ -67,12 +62,11 @@ export class CreateDialogComponent implements OnInit {
 
   close(): void {
     this.spotifyService.createMagicPlaylist(this.user.id, this.playlist.name,
-      this.playlist.description, this.playlist.public).subscribe(value => {
-        this.playlistId = value;
-        this.spotifyService.playlistId.next(this.playlistId);
+      this.playlist.description, this.playlist.public).subscribe(playlist => {
+        this.playlistId = playlist.id;
+        this.getSongsURI()
+        this.dialogRef.close({songsURI: this.songsURI, playlistId: this.playlistId});
       });
-    this.getSongsURI()
-    this.dialogRef.close(this.songsURI);
   }
 
 }

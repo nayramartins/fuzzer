@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
 
 
 @Injectable()
@@ -11,8 +12,6 @@ export class SpotifyService {
   selectedArtists = new BehaviorSubject<any>(null);
 
   selectedSongs = new BehaviorSubject<any>(null);
-
-  playlistId = new BehaviorSubject<any>(null);
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -37,7 +36,7 @@ export class SpotifyService {
       this.httpOptions);
   }
 
-  createMagicPlaylist(userId, playlistName, playlistDescription, playlistPrivacy) {
+  createMagicPlaylist(userId, playlistName, playlistDescription, playlistPrivacy): Observable<any> {
     return this.http.post(`${this.spotifyAPI}users/${userId}/playlists`,
       {
         "name": playlistName,
@@ -47,8 +46,9 @@ export class SpotifyService {
       this.httpOptions)
   }
 
-  setMusic(userId, playlistId, songs) {
-    const data = songs.toString();
+  setMusic(userId, playListInfo) {
+    const {songsURI, playlistId} = playListInfo
+    const data = songsURI.toString();
     return this.http.post(`${this.spotifyAPI}users/${userId}/playlists/${playlistId}/tracks?uris=${encodeURI(data)}`, {},
       this.httpOptions)
   }
