@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('fuzzer-mmp App', () => {
+describe('fuzzer App', () => {
   let page: AppPage;
 
   beforeEach(() => {

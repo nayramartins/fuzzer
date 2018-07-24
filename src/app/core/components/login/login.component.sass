@@ -5,24 +5,57 @@
   flex-direction: column
   height: 100vh
 
+  nav
+    position: relative
+    top: 20px
+    align-self: flex-start
+    margin: 20px 30px
+    padding: 10px
+    width: 320px
+    background-color: $fuzzer-black
+    box-sizing: border-box
+
+    .menu
+      font-size: 18px
+
+      a
+        margin: 0 5px
+        color: $fuzzer-white
+        text-decoration: none
+        cursor: pointer
+
+    &::before
+      content: ''
+      width: 0
+      height: 0
+      border-left: 320px solid transparent
+      border-bottom: 14px solid $fuzzer-black
+      position: absolute
+      left: 0
+      top: -13px
+
+  @media screen and (max-width: 731px)
+    height: auto
+
   &-title
     display: flex
     flex-direction: column
     align-items: center
+    justify-content: center
     position: relative
     height: 62%
     color: $fuzzer-green
-    font-family: 'Montserrat', sans-serif 
+    font-family: 'Montserrat', sans-serif
     text-align: center
 
-    h1
-      margin-top: 30px
+    @media screen and (max-width: 731px)
+      margin-top: 130px
 
     span
       display: block
 
-    &__small 
-      font-size: 32.4px
+    &__small
+      font-size: 1.7vw
       font-weight: 300
       letter-spacing: -0.6px
 
@@ -30,7 +63,7 @@
         font-size: 18px
 
     &__default
-      font-size: 74px
+      font-size: 4vw
       font-weight: 600
       letter-spacing: -1.5px
 
@@ -38,46 +71,23 @@
         font-size: 40px
 
     &__big
-      font-size: 124.3px
+      font-size: 6.7vw
       font-weight: 800
       letter-spacing: -2.5px
 
       @media screen and (max-width: 731px)
         font-size: 72px
 
-    nav
-      position: relative
-      align-self: flex-start
-      margin: 20px 30px
-      padding: 10px
-      width: 320px
-      background-color: $fuzzer-black
-      box-sizing: border-box
-
-      .menu
-        font-size: 18px
-
-        a
-          margin: 0 5px
-          color: $fuzzer-white
-          text-decoration: none
-
-      &::before
-        content: ''
-        width: 0
-        height: 0
-        border-left: 320px solid transparent
-        border-bottom: 14px solid $fuzzer-black
-        position: absolute
-        left: 0
-        top: -13px
-
   &-background
     display: flex
-    justify-content: center 
+    justify-content: center
     position: relative
     flex-grow: 1
     width: 100%
+
+    @media screen and (max-width: 731px)
+      height: 400px
+      margin-top: 33px
 
     img
       position: absolute
@@ -86,7 +96,7 @@
       object-fit: cover
 
   .login-button
-    position: absolute 
+    position: absolute
     margin-top: -20px
     padding: 15px 50px
     width: 300px
@@ -109,9 +119,9 @@
       top: -13px
 
   .arrow
-    width: 130px
+    width: 10vw
     transform: rotate(90deg)
-    margin-top: 40px
+    margin-top: 4vh
 
     @media screen and (max-width: 731px)
       width: 100px

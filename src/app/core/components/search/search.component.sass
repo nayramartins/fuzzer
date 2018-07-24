@@ -1,11 +1,18 @@
 @import '../../../../assets/styles/index'
 
+.expand
+  margin-top: 50%
+
+  @media screen and (orientation: landscape)
+    margin-top: 10%
+
 .search
   display: flex
   height: 100vh
 
   @media screen and (max-width: 731px)
     flex-direction: column
+    height: auto
 
   &-content
     display: flex
@@ -19,6 +26,9 @@
     font-family: 'Montserrat', sans-serif
     text-align: center
     box-sizing: border-box
+
+    @media screen and (orientation: landscape)
+      overflow: auto
 
     @media screen and (max-width: 731px)
       width: 100%
@@ -93,6 +103,12 @@
     &-result
       flex-grow: 1
       overflow: auto
+
+      @media screen and (max-width: 731px)
+        max-height: 55vh
+
+      @media screen and (orientation: landscape)
+        max-height: 35vh
 
       &__list
         display: flex
