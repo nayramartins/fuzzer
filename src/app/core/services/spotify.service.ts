@@ -18,6 +18,8 @@ export class SpotifyService {
 
   spotifyAPI = 'https://api.spotify.com/v1/';
 
+  playlistLink;
+
   constructor(private cookieService: CookieService,
     private http: HttpClient,
     private authService: AuthService) {

@@ -20,8 +20,6 @@ export class CreateDialogComponent implements OnInit {
 
   user;
 
-  playlistId;
-
   playlist: Playlist = {
     name: '',
     description: '',
@@ -63,9 +61,9 @@ export class CreateDialogComponent implements OnInit {
   close(): void {
     this.spotifyService.createMagicPlaylist(this.user.id, this.playlist.name,
       this.playlist.description, this.playlist.public).subscribe(playlist => {
-        this.playlistId = playlist.id;
+        this.spotifyService.playlistLink = playlist;
         this.getSongsURI()
-        this.dialogRef.close({songsURI: this.songsURI, playlistId: this.playlistId});
+        this.dialogRef.close({songsURI: this.songsURI, playlistId: playlist.id});
       });
   }
 

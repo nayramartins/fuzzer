@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { SpotifyService } from '../../services/spotify.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateDialogComponent } from './create-dialog/create-dialog.component';
@@ -26,9 +26,9 @@ export class SearchComponent implements OnInit {
 
   public selectedArtists = [];
 
-  public playlistInfo;
-
   public user;
+
+  public playlist = null;
 
   constructor(private spotifyService: SpotifyService,
     private authService: AuthService,
@@ -82,6 +82,7 @@ export class SearchComponent implements OnInit {
           this.selectedArtists = [];
           this.artistsList = [];
           this.spotifyService.selectedArtists.next(null);
+          this.playlist = this.spotifyService.playlistLink;
           this.notificationService.success('Success! Go to your spotify library to find your playlist!');
         }, error => {
           this.form.reset();
@@ -96,5 +97,9 @@ export class SearchComponent implements OnInit {
 
   removeArtist(index) {
     this.selectedArtists.splice(index);
+  }
+
+  clearLink() {
+    this.playlist = null;
   }
 }

@@ -27,7 +27,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatDialogModule,
   MatRadioModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 import { CreateDialogComponent } from './core/components/search/create-dialog/create-dialog.component';
 
@@ -50,7 +51,8 @@ import { CreateDialogComponent } from './core/components/search/create-dialog/cr
     BrowserAnimationsModule,
     MatDialogModule,
     MatRadioModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     AuthService,
