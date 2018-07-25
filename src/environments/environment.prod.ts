@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   spotify: {
-    clientId: '14b382314807492a96d24d5a513d71d0',
+    clientId: 'b69d4477ec644c22a999afc386cc74b6',
     scopes: 'user-library-read user-top-read user-read-email playlist-modify-private',
     redirectUri: 'https://fuzzer-dev.firebaseapp.com/login'
   }
