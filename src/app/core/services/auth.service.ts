@@ -17,7 +17,7 @@ export class AuthService {
 
     this.authGuard.userToken.subscribe(userToken => {
       this.setHeaders(userToken)
-    });  
+    });
   }
 
   login() {

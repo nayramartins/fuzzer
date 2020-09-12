@@ -6,7 +6,7 @@
 export const environment = {
   production: false,
   spotify: {
-    clientId: '14b382314807492a96d24d5a513d71d0',
+    clientId: '80b27964d21841b99bff28eedfaa21e4',
     scopes: 'user-library-read user-top-read user-read-email playlist-modify-private',
     redirectUri: 'http://localhost:4200/login'
   }
