@@ -1,9 +1,9 @@
+
+import {of as observableOf,  Observable ,  BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie';
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import 'rxjs/add/observable/of';
+
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
       console.log("access denied")
       this.router.navigate(['/login']);
     } 
-    return Observable.of(!!token);
+    return observableOf(!!token);
    }
 
 }
