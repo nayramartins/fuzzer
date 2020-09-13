@@ -17,9 +17,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.route.fragment.subscribe((fragment: string) => {
-      const decodedHash = this.decodeHash(fragment);
-      this.cookieService.put("fuzzerToken", decodedHash.access_token)
-      this.router.navigate(['/search'])
+      if (fragment) {
+        const decodedHash = this.decodeHash(fragment);
+        this.cookieService.put("fuzzerToken", decodedHash.access_token)
+        this.router.navigate(['/search'])
+      }
     })
   }
 
