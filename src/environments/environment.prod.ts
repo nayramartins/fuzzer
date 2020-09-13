@@ -3,6 +3,6 @@ export const environment = {
   spotify: {
     clientId: '80b27964d21841b99bff28eedfaa21e4',
     scopes: 'user-library-read user-top-read user-read-email playlist-modify-private',
-    redirectUri: 'https://fuzzer.netlify.app/login'
+    redirectUri: 'https://www.fuzzer.rocks/login'
   }
 };
