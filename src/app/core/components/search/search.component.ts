@@ -12,10 +12,10 @@ import { NotificationService } from '../../services/notification.service';
 })
 export class SearchComponent implements OnInit {
 
-  @ViewChild('search')
+  @ViewChild('search', { static: false })
   public search: any;
 
-  @ViewChild('form')
+  @ViewChild('form', { static: false })
   public form: any;
 
   public searchQuery: string;
@@ -42,9 +42,7 @@ export class SearchComponent implements OnInit {
   };
 
   searchArtist() {
-    if (!this.search.value == undefined) {
-      return
-    }
+    if (!this.search.value == undefined) return
 
     this.spotifyService.searchArtist(this.searchQuery).subscribe(res => {
       this.setArtists(res);
