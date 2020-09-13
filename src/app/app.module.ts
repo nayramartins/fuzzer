@@ -24,12 +24,10 @@ import {
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import {
-  MatDialogModule,
-  MatRadioModule,
-  MatSnackBarModule,
-  MatProgressSpinnerModule
-} from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CreateDialogComponent } from './core/components/search/create-dialog/create-dialog.component';
 
 @NgModule({
