@@ -1,0 +1,40 @@
+@import '../../../../../assets/styles/index'
+
+.header
+  background-color: $fuzzer-black
+  padding: 24px 0
+
+  @media (max-width: 767px)
+    padding: 18px 0
+
+  .container
+    align-items: center
+    display: flex
+    justify-content: space-between
+
+    @media (max-width: 767px)
+      justify-content: center
+
+  &-title
+    align-items: center
+    color: $fuzzer-green
+    display: flex
+    font-size: 36px
+    font-weight: 800
+
+    img
+      margin-right: 10px
+
+  &-nav
+    li
+      & + li
+        margin-left: 16px
+
+    a
+      color: $fuzzer-green
+      font-size: 18px
+      font-weight: 600
+      text-decoration: none
+
+    @media (max-width: 767px)
+      display: none

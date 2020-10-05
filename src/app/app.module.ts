@@ -17,6 +17,8 @@ import { LoginComponent } from './core/components/login/login.component';
 import { SearchComponent } from './core/components/search/search.component';
 import { AboutComponent } from './core/components/about/about.component';
 
+import { HeaderComponent } from './core/components/shared/header/header.component';
+
 import {
   FormsModule,
   ReactiveFormsModule
@@ -36,7 +38,8 @@ import { CreateDialogComponent } from './core/components/search/create-dialog/cr
     LoginComponent,
     SearchComponent,
     AboutComponent,
-    CreateDialogComponent
+    CreateDialogComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

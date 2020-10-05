@@ -1,19 +1,6 @@
 <main class="search">
   <section class="search-background">
     <img src="../../../../assets/images/full-bg.jpg" alt="">
-    <nav>
-      <ul class="menu">
-        <li class="menu-item">
-          <a [routerLink]="['/search']">home</a>
-        </li>
-        <li class="menu-item">
-          <a [routerLink]="['/about']">what's fuzzer</a>
-        </li>
-        <li class="menu-item">
-          <a href="#">help us</a>
-        </li>
-      </ul>
-    </nav>
   </section>
   <section class="search-content" [class.expand]="artistsList.length == 0">
     <ng-container *ngIf="!playlist">
