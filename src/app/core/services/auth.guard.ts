@@ -10,7 +10,7 @@ export class AuthGuard implements CanActivate {
   public userToken = new BehaviorSubject<String>('');
   constructor(private router: Router,
     private cookieService: CookieService) {}
-  
+
   canActivate (
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> {
@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate {
     if (!token) {
       console.log("access denied")
       this.router.navigate(['/login']);
-    } 
+    }
     return observableOf(!!token);
    }
 

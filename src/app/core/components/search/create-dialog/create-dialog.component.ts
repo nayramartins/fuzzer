@@ -4,7 +4,6 @@ import { SpotifyService } from '../../../services/spotify.service';
 import { AuthService } from '../../../services/auth.service';
 import { Playlist } from '../../../models/Playlist';
 
-
 @Component({
   selector: 'app-create-dialog',
   templateUrl: './create-dialog.component.html',
