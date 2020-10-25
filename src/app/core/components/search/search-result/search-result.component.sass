@@ -1,0 +1,47 @@
+.search-result
+  background-color: var(--fuzzer-orange)
+  border-radius: 5px
+  padding: 36px 56px
+
+  &.grid
+    align-items: center
+    grid-template-rows: 30px auto
+
+  &__title
+    color: var(--fuzzer-black)
+    font-size: 18px
+    font-style: italic
+    font-weight: 600
+    margin: 0 0 12px
+    text-align: left
+
+  &__list
+    strong
+      font-weight: 600
+
+    li.grid
+      align-items: center
+      gap: 16px
+      grid-template-columns: 95px 1fr 80px
+      padding: 16px 0
+
+      & + li
+        border-top: 1px solid var(--fuzzer-black)
+
+      img
+        border-radius: 20px
+        height: 80px
+        object-fit: cover
+        width: 95px
+
+  &__info
+    overflow: hidden
+    text-overflow: ellipsis
+    width: 99%
+    white-space: nowrap
+
+    li
+      display: inline-block
+      border: none
+      margin-right: 10px
+      padding: 0

@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 @Injectable()
 export class SpotifyService {
 
-  selectedArtists = new BehaviorSubject<any>(null);
+  selectedArtists = new BehaviorSubject<any[]>([]);
 
   selectedSongs = new BehaviorSubject<any>(null);
 
@@ -17,7 +17,7 @@ export class SpotifyService {
 
   spotifyAPI = 'https://api.spotify.com/v1/';
 
-  playlistLink;
+  playlistLink = new BehaviorSubject<any>(null);
 
   constructor(private cookieService: CookieService,
     private http: HttpClient,
@@ -25,7 +25,7 @@ export class SpotifyService {
   }
 
   searchArtist(query) {
-    return this.http.get(`${this.spotifyAPI}search?q=${query}&type=artist`,
+    return this.http.get(`${this.spotifyAPI}search?q=${query}&type=artist&limit=10&offset=0`,
       this.httpOptions);
   }
 

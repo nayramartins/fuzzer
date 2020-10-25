@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie';
 import { environment } from '../../../environments/environment';
-import { BehaviorSubject } from 'rxjs';
 import { AuthGuard } from './auth.guard';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class AuthService {
   public httpOptions;
+
+  public user = new BehaviorSubject<any>(null);
 
   public spotifyAPI = 'https://api.spotify.com/v1/';
 
@@ -38,6 +40,9 @@ export class AuthService {
   }
 
   getUser() {
+    const token = this.cookieService.get('fuzzerToken')
+    if (!token) return
+
     return this.http.get(`${this.spotifyAPI}me`,
       this.httpOptions);
   }

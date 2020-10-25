@@ -1,0 +1,28 @@
+<div class="search-result grid" *ngIf="searchResults && searchResults.length > 0">
+  <h2 class="search-result__title">search results:</h2>
+  <ul class="search-result__list">
+    <li
+      *ngFor="let result of searchResults"
+      class="grid"
+    >
+      <img
+        src="{{ result.images.length > 0 ? result.images[1].url : '' }}"
+        alt=""
+      >
+      <div>
+        <p><strong>{{ result.name }}</strong></p>
+        <ul
+          *ngIf="result.genres.length > 0"
+          class="search-result__info"
+        >
+          <li><strong>Genres:</strong></li>
+          <li *ngFor="let genre of result.genres">{{ genre }}</li>
+        </ul>
+        <p><strong>Followers: </strong>{{ result.followers.total }}</p>
+      </div>
+      <button (click)="selectArtist(result)" class="btn-small">
+        ADD
+      </button>
+    </li>
+  </ul>
+</div>

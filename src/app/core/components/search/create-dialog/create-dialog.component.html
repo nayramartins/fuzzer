@@ -5,19 +5,23 @@
 <form class="create-dialog"
       #form="ngForm">
     <div class="input-group">
-      <input required
-              placeholder="a cool playlist name..."
-              name="name"
-              [(ngModel)]="playlist.name"
-              #name="ngModel"
-              type="text"
-              autocomplete="off">
-      <input placeholder="some short description..."
-              name="description"
-              [(ngModel)]="playlist.description"
-              #description="ngModel"
-              type="text"
-              autocomplete="off">
+      <input
+        required
+        placeholder="a cool playlist name..."
+        name="name"
+        [(ngModel)]="playlist.name"
+        #name="ngModel"
+        type="text"
+        autocomplete="off"
+      />
+      <input
+        placeholder="some short description..."
+        name="description"
+        [(ngModel)]="playlist.description"
+        #description="ngModel"
+        type="text"
+        autocomplete="off"
+      />
     </div>
     <h3>is this a public playlist?</h3>
     <mat-radio-group>

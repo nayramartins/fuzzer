@@ -1,50 +1,31 @@
 <main class="search">
-  <section class="search-background">
-    <img src="../../../../assets/images/full-bg.jpg" alt="">
-  </section>
-  <section class="search-content" [class.expand]="artistsList.length == 0">
-    <ng-container *ngIf="!playlist">
-      <h2>
+  <ng-container *ngIf="!playlist">
+    <div class="search-header container">
+      <h2 class="search-header__title">
         add one or more artists to your new playlist!
       </h2>
-      <div class="artists">
-        <form class="artists-header" #form="ngForm">
-          <input
-            class="artists-search"
-            name="search"
-            placeholder="type the artist or band name..."
-            [(ngModel)]="searchQuery"
-            #search="ngModel"
-            type="text"
-            autocomplete="off">
-
-          <button #search id="search" (click)="searchArtist(); form.reset()">Search</button>
-        </form>
-        <div class="selected-artists" *ngIf="selectedArtists.length > 0">
-          <small>selected artists:</small>
-          <ul class="selected-artists__list">
-            <li *ngFor="let artist of selectedArtists; let i = index" (click)="removeArtist(i)">
-              {{ artist.name }}
-            </li>
-          </ul>
-          <button class="go-playlist" (click)="openDialog()">generate my playlist!</button>
-        </div>
-        <div class="artists-result">
-          <ul class="artists-result__list">
-            <li *ngFor="let artist of artistsList">
-              <div class="click-area" (click)="selectArtist(artist)">
-                <img src="{{ artist.images.length > 0 ? artist.images[1].url : '' }}" alt="">
-                <p class="artist-name">{{ artist.name }}</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </ng-container>
-    <div class="playlist-link" *ngIf="playlist">
-      <h2>listen to <strong>{{ playlist.name }}</strong>:</h2>
-      <a [href]="playlist.external_urls.spotify" class="playlist-btn"
-        target="_blank" (click)="clearLink()">open <strong>{{ playlist.name }}</strong> on spotify</a>
+      <form #form="ngForm">
+        <input
+          class="artists-search"
+          name="search"
+          placeholder="type the artist or band name..."
+          [(ngModel)]="searchQuery"
+          #search="ngModel"
+          type="text"
+          autocomplete="off" />
+        <button #search id="search" (click)="searchArtist(); form.reset()">Search</button>
+      </form>
     </div>
-  </section>
+    <div class="artists">
+      <app-search-selected-artists></app-search-selected-artists>
+      <div class="container">
+        <app-search-result></app-search-result>
+      </div>
+    </div>
+  </ng-container>
+  <div class="playlist-link" *ngIf="playlist">
+    <h2>listen to <strong>{{ playlist.name }}</strong>:</h2>
+    <a [href]="playlist.external_urls.spotify" class="playlist-btn"
+      target="_blank" (click)="clearLink()">open <strong>{{ playlist.name }}</strong> on spotify</a>
+  </div>
 </main>

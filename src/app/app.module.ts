@@ -31,6 +31,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CreateDialogComponent } from './core/components/search/create-dialog/create-dialog.component';
+import { SearchResultComponent } from './core/components/search/search-result/search-result.component';
+import { SearchSelectedArtistsComponent } from './core/components/search/search-selected-artists/search-selected-artists.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { CreateDialogComponent } from './core/components/search/create-dialog/cr
     AboutComponent,
     CreateDialogComponent,
     HeaderComponent,
+    SearchResultComponent,
+    SearchSelectedArtistsComponent,
   ],
   imports: [
     BrowserModule,

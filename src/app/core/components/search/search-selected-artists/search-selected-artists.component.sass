@@ -1,0 +1,34 @@
+.selected-artists
+  margin-bottom: 30px
+  text-align: left
+
+  &__list
+    .tip
+      background: none
+      color: var(--fuzzer-gray)
+      font-size: 13px
+
+    li
+      display: inline-block
+      margin: 5px
+      min-width: 80px
+      padding: 10px 20px
+      background-color: var(--fuzzer-green)
+      color: var(--fuzzer-white)
+      text-align: center
+      cursor: pointer
+      transition: .2s
+
+  .go-playlist
+    width: 100%
+    padding: 15px
+    font-size: 15px
+    margin: 5px 0
+    border: 0
+    background-color: var(--fuzzer-orange-light)
+    color: var(--fuzzer-white)
+    cursor: pointer
+
+    &:disabled
+      opacity: 0.5
+      cursor: not-allowed

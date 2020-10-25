@@ -1,0 +1,24 @@
+<div
+  class="selected-artists container"
+  *ngIf="selectedArtists && selectedArtists.length > 0"
+>
+  <small>selected artists:</small>
+  <ul class="selected-artists__list">
+    <li
+      *ngIf="selectedArtists.length < 1"
+      class="tip"
+    >
+      You have no selected artists, please add it by clicking on the list below
+    </li>
+    <li *ngFor="let artist of selectedArtists; let i = index" (click)="removeArtist(i)">
+      {{ artist.name }}
+    </li>
+  </ul>
+  <button
+    class="go-playlist"
+    [disabled]="selectedArtists.length < 1"
+    (click)="openDialog()"
+  >
+    generate my playlist!
+  </button>
+</div>
