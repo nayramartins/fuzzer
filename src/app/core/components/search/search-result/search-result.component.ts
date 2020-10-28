@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationService } from '../../../services/notification.service';
 import { SpotifyService } from '../../../services/spotify.service';
 import { ViewStateService } from '../../../services/view-state.service';
 
@@ -13,9 +14,12 @@ export class SearchResultComponent implements OnInit {
 
   selectedArtists = []
 
+  buttonLabel = 'ADD'
+
   constructor(
     private viewStateService: ViewStateService,
     private spotifyService: SpotifyService,
+    private notificationService: NotificationService,
   ) { }
 
   ngOnInit(): void {
@@ -25,8 +29,9 @@ export class SearchResultComponent implements OnInit {
     })
   }
 
-  selectArtist (artist) {
+  selectArtist (artist: any) {
     this.selectedArtists.push(artist)
     this.spotifyService.selectedArtists.next(this.selectedArtists)
+    this.notificationService.success(`${artist.name} added to the line-up!`)
   }
 }

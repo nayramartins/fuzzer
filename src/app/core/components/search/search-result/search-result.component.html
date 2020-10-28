@@ -2,7 +2,7 @@
   <h2 class="search-result__title">search results:</h2>
   <ul class="search-result__list">
     <li
-      *ngFor="let result of searchResults"
+      *ngFor="let result of searchResults; let i = index"
       class="grid"
     >
       <img
@@ -21,7 +21,7 @@
         <p><strong>Followers: </strong>{{ result.followers.total }}</p>
       </div>
       <button (click)="selectArtist(result)" class="btn-small">
-        ADD
+        {{ buttonLabel }}
       </button>
     </li>
   </ul>

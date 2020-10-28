@@ -10,7 +10,7 @@
     >
       You have no selected artists, please add it by clicking on the list below
     </li>
-    <li *ngFor="let artist of selectedArtists; let i = index" (click)="removeArtist(i)">
+    <li *ngFor="let artist of selectedArtists; let i = index" (click)="removeArtist(i, artist)">
       {{ artist.name }}
     </li>
   </ul>

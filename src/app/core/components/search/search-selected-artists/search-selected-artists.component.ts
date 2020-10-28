@@ -35,9 +35,10 @@ export class SearchSelectedArtistsComponent implements OnInit {
     this.authService.user.subscribe(value => this.user = value)
   }
 
-  removeArtist(index: number) {
+  removeArtist(index: number, artist: any) {
     this.selectedArtists.splice(index, 1);
     this.spotifyService.selectedArtists.next(this.selectedArtists)
+    this.notificationService.warning(`${artist.name} was cancelled!`)
   }
 
   openDialog(): void {
