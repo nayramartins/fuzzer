@@ -1,3 +1,7 @@
-# FuzzerMVP
+# Fuzzer
 
-fuzzer it's a Spotify app that makes possible for you to select artists and create dynamic playlists with their most popular songs. All you need to do is to hit play and chill.
+This is an open souce project developed using [Angular](https://angular.io/docs) and [Spotify API](https://developer.spotify.com/documentation/web-api/) to create playlists by searching and selecting artists you wish (and are available on Spotify!)
+
+## Contributing
+
+- Please use [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.4/) standard
