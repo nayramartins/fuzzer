@@ -28,13 +28,15 @@ export class SearchSelectedArtistsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.spotifyService.selectedArtists.subscribe(value => this.selectedArtists = value)
+    this.spotifyService.selectedArtists.subscribe(value => {
+      this.selectedArtists = value
+    })
 
     this.authService.user.subscribe(value => this.user = value)
   }
 
   removeArtist(index: number) {
-    this.selectedArtists.splice(index);
+    this.selectedArtists.splice(index, 1);
     this.spotifyService.selectedArtists.next(this.selectedArtists)
   }
 
