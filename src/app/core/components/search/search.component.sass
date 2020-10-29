@@ -3,7 +3,6 @@
 .search
   box-sizing: border-box
   padding: 0 5px
-  overflow: auto
 
   @media screen and (max-width: 767px)
     padding: 0 5px
@@ -67,8 +66,14 @@
       outline: none
       border-bottom: 2px solid $fuzzer-black
 
-  .playlist-btn
-    padding: 15px 40px
-    color: $fuzzer-white
-    text-decoration: none
-    background: #ef8a3b
+  .playlist
+    &-link
+      background-color: var(--fuzzer-gray-lighter)
+      padding: 36px
+      text-align: center
+
+    &-btn
+      background: #ef8a3b
+      color: $fuzzer-white
+      padding: 15px 40px
+      text-decoration: none
