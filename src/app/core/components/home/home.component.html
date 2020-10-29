@@ -1,2 +1,14 @@
-<main class="home container">
-</main>
+<section class="home container">
+  <div class="home__selection-box orange-box">
+    <img src="../../../../assets/images/mixtape-freedom.svg" alt="Mixtape image" />
+    <h2>FREEDOM!</h2>
+    <p>Search and select artists to create your custom playlist with their most listened songs</p>
+    <button (click)="setSelectedMode('FREEDOM')" class="btn">LET’S DO IT</button>
+  </div>
+  <div class="home__selection-box green-box">
+    <img src="../../../../assets/images/mixtape-help.svg" alt="Mixtape image" />
+    <h2>HELP!</h2>
+    <p>We can create for you a playlist with the most listened artists from your Spotify account </p>
+    <button (click)="setSelectedMode('HELP')" class="btn">LET’S DO IT</button>
+  </div>
+</section>

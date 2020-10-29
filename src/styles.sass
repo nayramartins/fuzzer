@@ -9,7 +9,8 @@
   --fuzzer-gray-lighter: #F0F0F0
   --fuzzer-white: #ffffff
   --fuzzer-green: #5fceca
-  --fuzzer-green-dark: #1f8564
+  --fuzzer-green-dark: #369D99
+  --fuzzer-green-darker: #1f8564
   --fuzzer-green-light: #5edbb3
   --fuzzer-orange: #FC9C54
   --fuzzer-orange-light: #ff963d
@@ -18,7 +19,7 @@ body
   margin: 0
   padding: 0
   font-family: 'Montserrat', sans-serif
-  color: #2c2c2c
+  color: var(--fuzzer-black)
   font-size: 14px
 
 button
@@ -36,6 +37,10 @@ h1
   font-size: 48px
   font-style: italic
 
+h2
+  font-size: 36px
+  font-style: italic
+
 h3
   font-size: 24px
   font-weight: 300
@@ -47,6 +52,9 @@ ul
   li
     display: inline
     list-style: none
+
+.color-green
+  color: var(--fuzzer-green-dark)
 
 .container
   margin: 0 auto
@@ -82,6 +90,10 @@ ul
   letter-spacing: 1px
   padding: 24px 64px
 
+  @media (max-width: 767px)
+    font-size: 14px
+    padding: 24px 56px
+
 .btn-small
   background-color: var(--fuzzer-black)
   border: none
@@ -96,3 +108,17 @@ ul
 
   @media (max-width: 767px)
     width: 100%
+
+.go-playlist
+  width: 100%
+  padding: 15px
+  font-size: 15px
+  margin: 5px 0
+  border: 0
+  background-color: var(--fuzzer-orange-light)
+  color: var(--fuzzer-white)
+  cursor: pointer
+
+  &:disabled
+    opacity: 0.5
+    cursor: not-allowed

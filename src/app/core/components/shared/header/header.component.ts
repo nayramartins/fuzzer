@@ -9,7 +9,7 @@ export class HeaderComponent {
   headerMenuItems = [
     {
       label: 'home',
-      link: '/',
+      link: '/home',
     },
     {
       label: 'what\'s fuzzer',

@@ -1,0 +1,30 @@
+.top-artists
+  &__result
+    background-color: var(--fuzzer-green-dark)
+    border-radius: 5px
+    padding: 36px 56px
+
+    &--item
+      padding: 22px 0
+
+      img
+        border-radius: 20px
+        width: 100%
+
+      &.grid
+        gap: 16px
+        grid-template-columns: 95px auto
+
+      & + .top-artists__result--item
+        border-top: 1px solid var(--fuzzer-black)
+
+  .playlist-link
+    background-color: var(--fuzzer-gray-lighter)
+    text-align: center
+
+  .playlist-btn
+    background: var(--fuzzer-orange)
+    color: var(--fuzzer-white)
+    padding: 15px 40px
+    text-decoration: none
+

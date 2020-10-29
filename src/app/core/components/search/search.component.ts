@@ -1,6 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { SpotifyService } from '../../services/spotify.service';
 
+import { SpotifyService } from '../../services/spotify.service';
 import { AuthService } from '../../services/auth.service';
 import { ViewStateService } from '../../services/view-state.service';
 
@@ -10,7 +10,6 @@ import { ViewStateService } from '../../services/view-state.service';
   styleUrls: ['./search.component.sass']
 })
 export class SearchComponent implements OnInit {
-
   @ViewChild('search', { static: false })
   public search: any;
 

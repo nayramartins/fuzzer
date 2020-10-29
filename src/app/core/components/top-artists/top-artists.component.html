@@ -1,0 +1,48 @@
+<section class="top-artists container">
+  <ng-container *ngIf="!playlist">
+    <h1 class="color-green">HELP!</h1>
+
+    <button
+      class="go-playlist"
+      (click)="openDialog()"
+    >
+      generate my playlist!
+    </button>
+
+    <div class="top-artists__result">
+      <h4>your favorites:</h4>
+      <ul>
+        <li
+          *ngFor="let item of topArtists.items"
+          class="top-artists__result--item grid"
+        >
+          <img
+            src="{{ item.images.length > 0 ? item.images[0].url : '' }}"
+            alt=""
+          />
+          <div class="top-artists__result--content">
+            <p><strong>{{ item.name }}</strong></p>
+            <ul
+              *ngIf="item.genres.length > 0"
+              class="top-artists__result--info"
+            >
+              <li><strong>Genres:</strong></li>
+              <li
+                *ngFor="let genre of item.genres; let i = index"
+              >
+                {{ genre }}<span *ngIf="i < item.genres.length - 1">, </span>
+              </li>
+            </ul>
+            <p><strong>Followers: </strong>{{ item.followers.total }}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </ng-container>
+
+  <div class="playlist-link" *ngIf="playlist">
+    <h2>listen to <strong>{{ playlist.name }}</strong>:</h2>
+    <a [href]="playlist.external_urls.spotify" class="playlist-btn"
+      target="_blank" (click)="clearLink()">open <strong>{{ playlist.name }}</strong> on spotify</a>
+  </div>
+</section>

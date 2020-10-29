@@ -34,6 +34,7 @@ import { CreateDialogComponent } from './core/components/search/create-dialog/cr
 import { SearchResultComponent } from './core/components/search/search-result/search-result.component';
 import { SearchSelectedArtistsComponent } from './core/components/search/search-selected-artists/search-selected-artists.component';
 import { HomeComponent } from './core/components/home/home.component';
+import { TopArtistsComponent } from './core/components/top-artists/top-artists.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { HomeComponent } from './core/components/home/home.component';
     SearchResultComponent,
     SearchSelectedArtistsComponent,
     HomeComponent,
+    TopArtistsComponent,
   ],
   imports: [
     BrowserModule,

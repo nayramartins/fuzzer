@@ -4,5 +4,11 @@
   background-position: left bottom, right top
   background-repeat: no-repeat
   box-sizing: border-box
-  height: calc(100vh - 89px)
-  padding-top: 170px
+  min-height: calc(100vh - 89px)
+  padding: 140px 0 80px
+
+  @media (max-width: 767px)
+    background-image: none
+    height: auto
+    min-height: 100vh
+    padding-top: 60px

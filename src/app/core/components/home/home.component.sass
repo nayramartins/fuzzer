@@ -1,0 +1,31 @@
+.home
+  display: grid
+  grid-template-columns: 1fr 1fr
+  gap: 32px
+  padding-bottom: 24px
+
+  @media (max-width: 767px)
+    grid-template-columns: 100%
+
+  &__selection-box
+    border-radius: 20px
+    padding: 56px
+    text-align: center
+
+    img
+      height: 142px
+
+    button
+      margin-top: 20px
+
+    &.orange-box
+      background-color: var(--fuzzer-orange)
+
+      button
+        color: var(--fuzzer-orange)
+
+    &.green-box
+      background-color: var(--fuzzer-green)
+
+      button
+        color: var(--fuzzer-green)

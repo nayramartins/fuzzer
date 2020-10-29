@@ -6,6 +6,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ViewStateService {
 
+  searchMode: string = ''
+
   searchResult = new BehaviorSubject<any>(null);
 
   constructor() { }
