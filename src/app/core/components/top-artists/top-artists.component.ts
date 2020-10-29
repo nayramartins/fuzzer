@@ -37,13 +37,16 @@ export class TopArtistsComponent implements OnInit {
     this.spotifyService.getTopArtists().subscribe(res => {
       if (!res) return
       this.setArtists(res)
-      this.spotifyService.selectedArtists.next(res.items)
     })
   }
 
   setArtists(res) {
     this.topArtists = res
-    console.log(this.topArtists)
+    this.spotifyService.selectedArtists.next(res.items)
+  }
+
+  clearLink() {
+    this.spotifyService.playlistLink.next(null)
   }
 
   openDialog(): void {
