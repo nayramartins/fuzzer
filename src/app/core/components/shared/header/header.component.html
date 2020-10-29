@@ -1,11 +1,9 @@
 <header class="header">
   <div class="container">
     <h1 class="header-title">
-      <img
-        src="../../../../../assets/images/fuzzer-logo.svg"
-        alt="Fuzzer logo"
-      />
-      fuzzer!
+      <a href="/home">
+        <img src="../../../../../assets/images/fuzzer-logo.svg" alt="Fuzzer logo" />
+      </a>
     </h1>
 
     <nav class="header-nav">
@@ -14,10 +12,7 @@
           <a [routerLink]="[item.link]">{{ item.label }}</a>
         </li>
         <li>
-          <a
-            href="https://github.com/nayramartins/fuzzer-mvp"
-            target="_blank"
-          >
+          <a href="https://github.com/nayramartins/fuzzer-mvp" target="_blank">
             help us
           </a>
         </li>
