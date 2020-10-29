@@ -14,10 +14,6 @@
     display: flex
     justify-content: space-between
 
-    @media (max-width: 767px)
-      flex-direction: column
-      justify-content: center
-
   &-title
     align-items: center
     color: $fuzzer-green
@@ -26,7 +22,11 @@
     font-weight: 800
 
     img
-      margin-right: 10px
+      display: block
+      width: 48px
+
+      @media (max-width: 767px)
+        width: 36px
 
   &-nav
     li
@@ -38,6 +38,3 @@
       font-size: 18px
       font-weight: 600
       text-decoration: none
-
-    @media (max-width: 767px)
-      margin-top: 24px
