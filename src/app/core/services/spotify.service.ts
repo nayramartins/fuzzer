@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject ,  Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
@@ -45,10 +45,15 @@ export class SpotifyService {
   }
 
   setMusic(userId, playListInfo) {
-    const {songsURI, playlistId} = playListInfo
+    const { songsURI, playlistId } = playListInfo
     const data = songsURI.toString();
     return this.http.post(`${this.spotifyAPI}users/${userId}/playlists/${playlistId}/tracks?uris=${encodeURI(data)}`, {},
       this.httpOptions)
+  }
+
+  getTopArtists() {
+    return this.http.get(`${this.spotifyAPI}me/top/artists?limit=10`,
+      this.httpOptions);
   }
 }
 

@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
       if (fragment) {
         const decodedHash = this.decodeHash(fragment);
         this.cookieService.put("fuzzerToken", decodedHash.access_token)
-        this.router.navigate(['/search'])
+        this.router.navigate(['/home'])
       }
     })
   }

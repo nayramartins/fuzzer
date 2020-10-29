@@ -11,10 +11,16 @@ import {
 } from './core/components/login/login.component';
 import { SearchComponent } from './core/components/search/search.component';
 import { AboutComponent } from './core/components/about/about.component';
+import { HomeComponent } from './core/components/home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [AuthGuard]
+  },
   {
     path: 'search',
     component: SearchComponent,

@@ -1,14 +1,9 @@
-<main class="login">
-  <section class="login-title">
-    <h1>
-      <span class="login-title__default">welcome to</span>
-      <span class="login-title__big">fuzzer!</span>
-      <span class="login-title__small">your mixtape generator!</span>
-    </h1>
-    <img class="arrow" src="../../../../assets/images/arrow.svg" alt="">
-  </section>
-  <section class="login-background">
-    <img src="../../../../assets/images/full-bg.jpg" alt="">
-    <button class="login-button" (click)="onLogin()">Login with Spotify</button>
-  </section>
-</main>
+<section class="login container">
+  <div class="login-image">
+    <img src="../../../../assets/images/fuzzer-mixtape-icon.svg" alt="Mixtape image" />
+  </div>
+
+  <h1>welcome to fuzzer!</h1>
+  <h3 class="login-title__small">your mixtape generator!</h3>
+  <button class="btn" (click)="onLogin()">Login with Spotify</button>
+</section>

@@ -33,6 +33,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CreateDialogComponent } from './core/components/search/create-dialog/create-dialog.component';
 import { SearchResultComponent } from './core/components/search/search-result/search-result.component';
 import { SearchSelectedArtistsComponent } from './core/components/search/search-selected-artists/search-selected-artists.component';
+import { HomeComponent } from './core/components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { SearchSelectedArtistsComponent } from './core/components/search/search-
     HeaderComponent,
     SearchResultComponent,
     SearchSelectedArtistsComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
