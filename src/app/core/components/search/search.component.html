@@ -1,9 +1,10 @@
-<main class="search">
+<main class="search container">
+  <h1 class="search-title color-orange">FREEDOM!</h1>
   <ng-container *ngIf="!playlist">
-    <div class="search-header container">
-      <h2 class="search-header__title">
+    <div class="search-header">
+      <h3 class="search-header__title">
         add one or more artists to your new playlist!
-      </h2>
+      </h3>
       <form #form="ngForm">
         <input
           class="artists-search"
@@ -18,7 +19,7 @@
     </div>
     <div class="artists">
       <app-search-selected-artists></app-search-selected-artists>
-      <div class="container">
+      <div>
         <app-search-result></app-search-result>
       </div>
     </div>

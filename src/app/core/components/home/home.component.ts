@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ViewStateService } from '../../services/view-state.service';
+import { SpotifyService } from '../../services/spotify.service';
 
 @Component({
   selector: 'app-home',
@@ -12,9 +13,11 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private viewStateService: ViewStateService,
+    private spotifyService: SpotifyService,
   ) { }
 
   ngOnInit(): void {
+    this.spotifyService.selectedArtists.next(null)
   }
 
   setSelectedMode(mode: string) {

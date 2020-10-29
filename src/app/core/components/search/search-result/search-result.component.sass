@@ -1,6 +1,7 @@
 .search-result
   background-color: var(--fuzzer-orange)
   border-radius: 5px
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2)
   padding: 36px 56px
 
   @media (max-width: 767px)
@@ -38,9 +39,7 @@
 
       img
         border-radius: 20px
-        height: 80px
-        object-fit: cover
-        width: 95px
+        width: 100%
 
     li
       border: none
@@ -49,3 +48,6 @@
 
       @media (max-width: 767px)
         display: block
+
+  &__info
+    margin-bottom: 24px

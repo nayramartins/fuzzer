@@ -18,7 +18,6 @@
           <li><strong>Genres:</strong></li>
           <li *ngFor="let genre of result.genres">{{ genre }}</li>
         </ul>
-        <p><strong>Followers: </strong>{{ result.followers.total }}</p>
       </div>
       <button (click)="selectArtist(result)" class="btn-small">
         {{ buttonLabel }}

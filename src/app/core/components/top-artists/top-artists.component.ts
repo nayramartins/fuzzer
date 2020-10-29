@@ -43,6 +43,7 @@ export class TopArtistsComponent implements OnInit {
   setArtists(res) {
     this.topArtists = res
     this.spotifyService.selectedArtists.next(res.items)
+    console.log(this.topArtists)
   }
 
   clearLink() {

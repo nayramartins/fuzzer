@@ -11,9 +11,9 @@ export class HeaderComponent {
       label: 'home',
       link: '/home',
     },
-    {
-      label: 'what\'s fuzzer',
-      link: '/about',
-    },
+    // {
+    //   label: 'what\'s fuzzer',
+    //   link: '/about',
+    // },
   ]
 }

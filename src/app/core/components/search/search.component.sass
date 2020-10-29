@@ -1,31 +1,35 @@
 @import '../../../../assets/styles/index'
 
 .search
-  align-items: center
   box-sizing: border-box
-  flex-wrap: wrap
-  display: flex
-  height: calc(100vh - 89px)
-  justify-content: center
-  padding: 52px 0
+  padding: 0 5px
   overflow: auto
+
+  @media screen and (max-width: 767px)
+    padding: 0 5px
+
+  &-title
+    text-align: left
 
   &-content
     align-items: center
     box-sizing: border-box
     display: flex
-    height: calc(100vh - 89px)
     padding: 100px 0
 
     &.search-active
       padding-top: 36px
 
   &-header
+    background-color: var(--fuzzer-white)
+    border-radius: 5px
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2)
+    margin-bottom: 36px
+    padding: 36px
+
     &__title
       color: $fuzzer-green
       margin: 0 0 30px
-      font-size: 35px
-      font-weight: 300
       text-align: center
 
     form
@@ -34,8 +38,17 @@
       margin-bottom: 22px
 
       @media screen and (max-width: 731px)
+        flex-direction: column
         min-height: 40px
         margin-bottom: 10px
+
+        input
+          margin-bottom: 16px
+          width: 100%
+
+        #search
+          border-radius: 5px
+          padding: 22px 50px
 
   .artists
     display: flex
